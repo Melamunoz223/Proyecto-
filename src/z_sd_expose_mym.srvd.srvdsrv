@@ -1,0 +1,5 @@
+@EndUserText.label: 'SD'
+define service Z_SD_EXPOSE_MYM {
+  expose Z_C_ORDENES_MYM;
+  expose Z_C_DESCRIPCION_MYM;
+}

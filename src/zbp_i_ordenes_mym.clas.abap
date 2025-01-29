@@ -1,0 +1,5 @@
+CLASS zbp_i_ordenes_mym DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF z_i_ordenes_mym.
+ENDCLASS.
+
+CLASS zbp_i_ordenes_mym IMPLEMENTATION.
+ENDCLASS.

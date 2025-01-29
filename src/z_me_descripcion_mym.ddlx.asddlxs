@@ -1,0 +1,53 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Item',
+                     typeNamePlural: 'Items',
+                     title: { type: #STANDARD, 
+                     label: 'Item',
+                     value: 'id' } } }
+annotate view Z_C_DESCRIPCION_MYM
+    with 
+{
+      @UI.facet: [ { id:            'Item',
+               purpose:       #STANDARD,
+               type:          #IDENTIFICATION_REFERENCE,
+               label:         'Item',
+               position:      10 } ]
+
+  @EndUserText.label: ' ID'
+  @UI: { lineItem:       [ { position: 05, importance: #HIGH } ],
+         identification: [ { position: 05 } ] }
+    id;
+      @EndUserText.label: 'Name'
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         identification: [ { position: 10 } ] }
+    name;
+      @EndUserText.label: 'Description'
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         identification: [ { position: 20 } ] }
+    description;
+      @EndUserText.label: 'Release date'
+  @UI: { lineItem:       [ { position: 30, importance: #HIGH } ],
+         identification: [ { position: 30 } ] }
+    releasedate;
+      @EndUserText.label: 'Discontinued date'
+  @UI: { lineItem:       [ { position: 40, importance: #HIGH } ],
+         identification: [ { position: 40 } ] }
+    discontinueddate;
+  @EndUserText.label: 'Price'
+  @UI: { lineItem:       [ { position: 50, importance: #HIGH } ],
+         identification: [ { position: 50 } ] }
+    price;
+      @EndUserText.label: 'Depth'
+  @UI: { lineItem:       [ { position: 80, importance: #HIGH } ],
+         identification: [ { position: 80 } ] }
+    depth;
+     @EndUserText.label: 'Quantity'
+  @UI: { lineItem:       [ { position: 90, importance: #HIGH } ],
+         identification: [ { position: 90 } ] }
+    quanity;
+      @EndUserText.label: 'UoM'
+    unitofmeausere;
+    /* Associations */
+//    _cabe;
+    
+}

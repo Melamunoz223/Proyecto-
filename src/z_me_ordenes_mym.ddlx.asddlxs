@@ -1,0 +1,80 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Sales Ordene',
+        typeNamePlural: 'Ordenes',
+        imageUrl: 'imageurl',
+        title: { type: #STANDARD,
+        label: 'Sales Order',
+        value: 'id_header' }}}
+
+@Search.searchable: true
+
+annotate view Z_C_ORDENES_MYM with
+{
+  @UI.facet: [{ id:            'Header',
+                purpose:       #STANDARD,
+                type:          #IDENTIFICATION_REFERENCE,
+                label:         'Sales Order',
+                position:      10 }]
+
+  @UI.selectionField: [{ position: 10 }]
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @EndUserText: { label: 'ID', quickInfo: 'ID Ordene' }
+  @UI:{ lineItem: [{ position: 10, importance:#HIGH, emphasized: true, isPartOfPreview: true,
+        cssDefault: { width: '7rem' },
+        type: #STANDARD,
+        criticalityRepresentation: #WITHOUT_ICON }],
+        identification: [ { position: 10, label: 'Sales Order Id' } ]
+        }
+
+  id_header;
+  @EndUserText.label: 'Email'
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH, cssDefault: { width: '11rem' } } ] ,
+         identification: [ { position: 20 } ],
+         selectionField: [ { position: 20 } ] }
+  email;
+  @EndUserText.label: 'First Name'
+  @UI: { lineItem:       [ { position: 30, importance: #HIGH, cssDefault: { width: '11rem' } } ] ,
+         identification: [ { position: 30 } ],
+         selectionField: [ { position: 30 } ] }
+  firstname;
+  @EndUserText.label: 'Last Name'
+  @UI: { lineItem:       [ { position: 40, importance: #HIGH, cssDefault: { width: '11rem' } } ] ,
+         identification: [ { position: 40 } ],
+         selectionField: [ { position: 40 } ] }
+  lastname;
+  @EndUserText.label: 'Country'
+  @UI: { lineItem:       [ { position: 50, importance: #MEDIUM, cssDefault: { width: '5rem' } } ] ,
+         identification: [ { position: 50 } ] }
+  country;
+  @EndUserText.label: 'Create On'
+  @UI: { lineItem:       [ { position: 60, importance: #MEDIUM } ] ,
+         identification: [ { position: 60 } ] }
+  createon;
+  @EndUserText.label: 'Delivery Date'
+  @UI: { lineItem:       [ { position: 70, importance: #MEDIUM } ] ,
+         identification: [ { position: 70 } ] }
+  delivereddate;
+  @EndUserText.label: 'Order Status'
+  @UI: { lineItem:       [ { position: 70, importance: #MEDIUM } ] ,
+         identification: [ { position: 70 } ] }
+  orderstatus;
+  @EndUserText.label: 'Image URL'
+  @UI: { lineItem:       [ { position: 80, importance: #LOW } ],
+         identification: [ { position: 80 } ] }
+  imageurl;
+
+
+  /* Associations */
+
+  @UI.facet: [{
+               id:            'Item',
+               purpose:       #STANDARD,
+               type:          #LINEITEM_REFERENCE,
+               label:         'Item',
+               position:      20,
+               targetElement: '_desc'}]
+  _desc;
+}

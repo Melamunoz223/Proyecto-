@@ -1,0 +1,32 @@
+managed implementation in class zbp_i_ordenes_mym unique;
+//strict ( 2 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for Z_I_ORDENES_MYM //alias <alias_name>
+persistent table ztbd_ordenes_mym
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly : update ) id_header;
+  association _desc { create; }
+
+  mapping for ztbd_ordenes_mym corresponding;
+}
+
+define behavior for z_i_descripcion_mym //alias <alias_name>
+persistent table ztdescripcion_m
+lock dependent by _orden
+authorization dependent by _orden
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly : update ) id_header;
+  field ( mandatory ) id;
+  association _orden;
+  mapping for ztdescripcion_m corresponding;
+
+}
